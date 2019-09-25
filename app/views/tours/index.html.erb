@@ -53,15 +53,7 @@
           <div class="home_search_container">
             <div class="home_search_title"><%= t ".search_trip" %></div>
             <div class="home_search_content">
-              <form action="#" class="home_search_form" id="home_search_form">
-                <div class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
-                  <input type="text" class="search_input search_input_1" placeholder="City" required="required">
-                  <input type="text" class="search_input search_input_2" placeholder="Departure" required="required">
-                  <input type="text" class="search_input search_input_3" placeholder="Arrival" required="required">
-                  <input type="text" class="search_input search_input_4" placeholder="Budget" required="required">
-                  <button class="home_search_button"><%= t ".search" %></button>
-                </div>
-              </form>
+              <%= render partial: 'search', search: @search %>
             </div>
           </div>
         </div>
@@ -83,24 +75,31 @@
         <div class="col">
           <div class="destinations_container item_grid">
             <!-- Destination -->
-            <div class="destination item">
-              <div class="destination_image">
-                <%= image_tag 'destination_1.jpg' %>
-                <div class="spec_offer text-center">
-                  <%= link_to t(".special"), "#" %>
-                </div>
-              </div>
-              <div class="destination_content">
-                <div class="destination_title">
-                  <%= link_to t(".bali"), "#" %>
-                </div>
-                <div class="destination_subtitle">
-                  <p><%= t ".description" %></p>
-                </div>
-                <div class="destination_price"><%= t ".price" %></div>
-              </div>
-            </div>
             <!-- Destination -->
+            <%= render partial: "tour", collection: @tours, as: :tour %>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="destinations" id="testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <div class="section_subtitle"><%= t ".simply" %></div>
+          <div class="section_title">
+            <h2><%= t ".new" %></h2>
+          </div>
+        </div>
+      </div>
+      <div class="row destinations_row">
+        <div class="col">
+          <div class="destinations_container item_grid">
+            <!-- Destination -->
+            <!-- Destination -->
+            <%= render partial: "tour", collection: @tours, as: :tour %>
+            
           </div>
         </div>
       </div>

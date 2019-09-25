@@ -32,6 +32,12 @@
   height: 100%;
   align-content: center;
 }
+
+container-bank-accounts {
+  margin: 100px 50px;
+  height: 100%;
+  align-content: center;
+}
 .card {
   height: 400px;
   margin-top: auto;
@@ -101,4 +107,69 @@
 
 #accordionSidebar {
   height: auto;
+}
+.tour-form-search {
+  .col-3 {
+    padding: 0;
+    padding-right: 5px;
+    select {
+      width: 100%;
+    }
+  }
+  
+  select {
+    padding: 5px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px black;
+  }
+
+  input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  #search_c_0_v_0_value, #search_c_0_a_0_name,
+    #search_c_0_p, #search_s_0_name, #search_s_0_dir {
+    height: 50px;
+    background: #f2f5f6;
+    border: none;
+    outline: none;
+    padding-left: 17px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #72728c !important;
+    box-shadow: 2px 2px 5px white;
+
+  }
+  #search_s_0_name, #search_s_0_dir {
+    margin-top: 10px;
+    margin-right: 5px;
+  }
+  .tour-btn-search {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 0 2px 5px black;
+    height: 50px;
+    :hover {
+      box-shadow: 0 2px 5px black;
+    }
+  }
+}
+.home_search_admin {
+  width: 100%;
+  background: #FFFFFF;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 67px;
+  padding-right: 83px;
+}
+
+.offer_price {
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 700;
+  color: #eda84a;
+  line-height: 25px;
 }

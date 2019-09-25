@@ -1,0 +1,29 @@
+<div class="card-body tour-form-search ">
+  <%= search_form_for @search do |f| %>
+    <%= f.condition_fields do |condition| %>
+      <div class="row">
+        <div class="col-3 ">
+          <%= condition.attribute_fields do |attribute| %>
+            <%= attribute.attribute_select associations: [:category]  %>
+          <% end %>
+        </div>
+        <div class="col-3">
+          <%= condition.predicate_select only: %i(cont eq) %>
+        </div>
+        <div class="col-3">
+          <%= condition.value_fields do |value| %>
+            <%= value.text_field :value, placeholder: "Search" %>
+          <% end %>
+        </div>
+        <div class="col-3">
+         <button class="home_search_button"><%= t ".search" %></button>
+        </div>
+      </div>
+      <div class="col">
+        <%= f.sort_fields do |sort| %>
+          <%= sort.sort_select %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

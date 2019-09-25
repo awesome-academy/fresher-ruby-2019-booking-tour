@@ -1,0 +1,32 @@
+<div class="home_search_admin">
+
+  <div class="card-body tour-form-search">
+    <%= search_form_for [:admin, @search] do |f| %>
+      <%= f.condition_fields do |condition| %>
+        <div class="row">
+          <div class="col-3">
+            <%= condition.attribute_fields do |attribute| %>
+              <%= attribute.attribute_select associations: [:category] %>
+            <% end %>
+          </div>
+          <div class="col-3">
+            <%= condition.predicate_select %>
+          </div>
+          <div class="col-3">
+            <%= condition.value_fields do |value| %>
+              <%= value.text_field :value %>
+            <% end %>
+          </div>
+          <div class="col-3">
+            <%= f.submit t(".search"), class: "btn btn-success tour-btn-search" %>
+          </div>
+        </div>
+        <div class="col">
+          <%= f.sort_fields do |sort| %>
+            <%= sort.sort_select %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe HomesController, type: :controller do
+RSpec.describe ToursController, type: :controller do
   describe "GET #index" do
     it "is expected render template" do
       expect{response.to render_template :index}

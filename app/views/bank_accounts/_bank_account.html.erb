@@ -1,0 +1,29 @@
+ <% if user_signed_in? && is_current_user?(bank_account.user) %>
+  <div class="row">
+    <div class="col">
+      <div class="destination item">
+        <div class="destination_content bank-account">
+          <div class="bank-account-body">
+            <div class="bank-account-heading"><%= bank_account.name %></div>
+            <div class="bank-account-body">
+              <div class="row">
+                <%= image_tag get_avatar bank_account.user %>
+              </div>
+              <div class="row">
+                <div class="account-number">
+                  <%= t ".account" %>: <%= bank_account.account_number %>
+                </div>
+                <div class="amount">
+                  <%= t ".amount" %><%= bank_account.amount %><%= t ".$" %>
+                </div>
+                <div class="action">
+                  <%= link_to t(".edit"), edit_bank_account_path(bank_account) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

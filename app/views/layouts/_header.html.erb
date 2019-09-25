@@ -36,6 +36,9 @@
               <%= link_to t(".profile"), edit_user_registration_path(current_user) %>
             </li>
             <li class="dropdown-item">
+              <%= link_to t(".bank_account"), bank_accounts_path %>
+            </li>
+            <li class="dropdown-item">
               <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete %>
             </li>
         </ul>

@@ -5,6 +5,9 @@
       <i class="fa fa-plus"></i>
       <%=  t ".create_tour" %>
     <% end %>
+    <div class="border-search">
+      <%= render partial: "search", search: @search %>
+    </div>
     <div class="card shadow mb-4 custom-card">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary"><%= t ".tour_list" %></h6>

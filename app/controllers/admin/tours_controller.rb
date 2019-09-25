@@ -1,9 +1,15 @@
 class Admin::ToursController < Admin::BaseController
-  before_action :load_tour, only: %i(edit update)
+  before_action :load_tour, only: %i(edit update destroy)
   
   def index
-    @tours = Tour.last_tours.page(params[:page])
+    @search = Tour.ransack params[:search]
+    @search.sorts = Settings.default_sort if @search.sorts.empty?
+    @tours = @search.result
+      .joins(:category)
+      .page(params[:page])
       .per Settings.paging.paging_number
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
   end
 
   def new
@@ -30,6 +36,15 @@ class Admin::ToursController < Admin::BaseController
       flash[:danger] = t ".update_fail"
       render :edit
     end
+  end
+
+  def destroy
+    if @tour.destroy
+      flash[:success] = t ".destroy_success"
+    else
+      flash[:danger] = t ".destory_fail"
+    end
+    redirect_to admin_tours_path
   end
 
   private
