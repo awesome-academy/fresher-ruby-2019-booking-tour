@@ -1,4 +1,5 @@
 en:
+  start_time: "start time cannot current time"
   admin:
     tours:
       index:
@@ -86,9 +87,12 @@ en:
   users:
     sessions:
       new:
-        login: "Login"
         remember_me: "Remember me"
         new_user: "New user?"
+        email: "Email"
+        password: "Password"
+        current_password: "Current password"
+        login: "Login"
     shared:
       errors_messages:
         not_saved: "Not save"
@@ -134,3 +138,109 @@ en:
         forgot_password: "Forgot your password?"
         send_me: "Send me reset password instructions"
         email: "email"
+  tours:
+    index:
+      number_01: "Number 01"
+      number_03: "Number 03"
+      rating: "Rating"
+      popular: "Popular"
+    tour:
+      close: "Close"
+    show:
+      simply: "Simply"
+      book: "Book"
+      $: "$"
+      day: "Day"
+    booking_tour:
+      submit: "Submit"
+      people_number: "People number"
+      phone_number: "Phone number"
+      address: "Address"
+      booking: "booking"
+      close: "Close"
+    rating_form:
+      add_rating: "Add rating"
+      rating: "Rating"
+      close: "Close"
+      submit: "Submit"
+      quantity: "Quantity"
+    review_form:
+      content: "Review content"
+      post: "Post"
+      add_review: "Add Review"
+      close: "Close"
+      "1": "1"
+      "2": "2"
+      "3": "3"
+      "4": "4"
+      "5": "5"
+    ratings:
+      create:
+        success_create: "Success created"
+      load_tour:
+        not_found: "Not found"
+  comments:
+    form:
+      share_your_idea: "Share your idea"
+      comment: "comment"
+      leave_your_reply: "Leave your reply"
+      change: "change"
+    widget:
+      comment: "Comment"
+    comment:
+      edit: "edit"
+      destroy: "destroy"
+      reply: "reply"
+      delete: "delete"
+      are_you_sure?: "Are you sure?"
+    create:
+      comment_success: "Success created"
+      comment_fail: "Fail update"
+      success_update: "Success update"
+      fail_update: "Fail update"
+    load_comment:
+      not_found: "Not found"
+  likes:
+    load_review:
+      not_found: "Not found"
+    like:
+      like: "like"
+    unlike:
+      unlike: "unlike"
+  bank_accounts:
+    bank_account:
+      account: "Account: "
+      amount: "Amount: "
+      $: " $"
+      edit: "Edit"
+      are_you_sure: "Are you sure?"
+      delete: "Delete"
+    edit:
+      edit_card: "edit card"
+      change_card: "change card"
+      account_number: "Account number"
+    index:
+      bank_account: "Bank account"
+    form:
+      new_card: "New card"
+      account_number: "Account number"
+    create:
+      success_create:  "successfully created"
+      something_wrong: "Something went wrong"
+    destroy:
+      success_delete: "Succes delete"
+      fail_delete: "Fail delete"
+  bookings:
+    create:
+      success_booking: "Success booking"
+      fail_booking: "Fail booking"
+      balance_is_not: "Your account balance is not enough to make a transaction"
+    load_tour:
+      not_found: "Not found"
+    start_time_booking:
+      start_time: "time is lower than start time"
+    success:
+      join_community: "Join The Global Travello Community!"
+      happiness: "Happiness is Travelling"
+      success: "Success"
+       

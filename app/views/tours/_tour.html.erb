@@ -11,7 +11,7 @@
       <%= link_to tour.name, tour_path(tour) %>
     </div>
     <div class="destination_subtitle">
-      <p><%= tour.description %></p>
+      <p><%= truncate tour.description, length: Settings.length_description %></p>
     </div>
     <div class="destination_subtitle">
       <p class="destination_price"><%= tour.duration %>day</p>

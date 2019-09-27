@@ -10,11 +10,16 @@ class Tour < ApplicationRecord
   validates :description, presence: true
   validates :duration, presence: true
   validates_numericality_of :duration,
-    greater_than_or_equal_to: Settings.tours.duration.day_number
+  greater_than_or_equal_to: Settings.tours.duration.day_number
   validates_numericality_of :price,
-    greater_than_or_equal_to: Settings.tours.price.default_price
+  greater_than_or_equal_to: Settings.tours.price.default_price
 
   scope :last_tours, ->{order created_at: :desc}
+  scope :user_rated, -> {includes(:ratings).count(:user_id)}
+  scope :tour_with_order_by_rating, -> {joins(:ratings).select("tours.*, avg(ratings.star) as average_rating, count(ratings.id) as number_of_ratings")
+    .group(:tour_id).order("average_rating DESC, number_of_ratings DESC")}
+  scope :tour_with_order_by_review, ->{joins(:reviews).select("tours.*, sum(reviews.user_id) as sum_user, count(reviews.id) as number_of_reviews")
+    .group(:tour_id).order("sum_user DESC, number_of_reviews DESC")}
   delegate :name, to: :category, prefix: true, allow_nil: true
   accepts_nested_attributes_for :picture, allow_destroy: true
   
