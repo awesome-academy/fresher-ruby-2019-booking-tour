@@ -1,0 +1,70 @@
+<button type="button" class="btn-lg home_search_button"
+  data-toggle="modal" data-target="#booking">
+  <%= t ".booking" %>
+</button>
+
+<div class="modal fade" id="booking" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%= @tour.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for [@tour, @tour.bookings.build], method: :post, remote: true do |f| %>
+          <div class="star_content">
+            <div class="form-group booking-picture">
+              <%= image_tag tour_picture(@tour) %>
+            </div>
+            <div class="booking_fail"></div>
+            <div class="account_not_enough"></div>
+            <div class="form-group">
+              <%= f.label :start_time %>
+              <%= f.date_field :start_time, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+                  <%= f.label :people_number, t(".people_number") %>
+                  <%= f.number_field :people_number, class: "form-control" %>
+                </div>
+                <div class="col">
+                  <%= f.label :price %>
+                  <%= hidden_field_tag :tour_price, @tour.price %>
+                  <%= f.number_field :price, class: "form-control",disabled: true %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.label :phone_number, t(".phone_number") %>
+              <%= f.text_field :phone_number, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :address %>
+              <%= f.text_field :address, class: "form-control" %>
+            </div>
+            
+              
+              <div class="form-group">
+                <%=  f.submit t(".submit"), type: :submit, class: "btn btn-info",  disable_with: false %>
+              </div>
+            
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="book_tour" class="btn btn-default" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" id="btn_notification" class="d-none" data-toggle="modal" data-target="#notification"></button>
+<!-- Modal -->
+<div class="modal fade" id="notification" tabindex="-1" role="dialog" aria-labelledby="notificationLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body my_notification">
+      </div>
+    </div>
+  </div>
+</div>

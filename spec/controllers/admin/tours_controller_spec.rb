@@ -59,6 +59,7 @@ RSpec.describe Admin::ToursController, type: :controller do
       expect{(params.name).to eq("Tour")}
     end
   end
+  
   describe "DELETE #destroy" do
     let(:category) {FactoryBot.create :category, name: "New category"}
     let(:params) {FactoryBot.create :tour, category_id: category.id, name: "TOur"}
