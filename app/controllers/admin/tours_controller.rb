@@ -1,6 +1,16 @@
 class Admin::ToursController < Admin::BaseController
   before_action :load_tour, only: %i(edit update destroy)
-  before_action :set_search, only: :index
+  
+  def index
+    @search = Tour.ransack params[:search]
+    @search.sorts = Settings.default_sort if @search.sorts.empty?
+    @tours = @search.result
+      .joins(:category)
+      .page(params[:page])
+      .per Settings.paging.paging_number
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+  end
 
   def new
     @tour = Tour.new
