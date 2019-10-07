@@ -10,11 +10,12 @@ class Tour < ApplicationRecord
   validates :description, presence: true
   validates :duration, presence: true
   validates_numericality_of :duration,
-    greater_than_or_equal_to: Settings.tours.duration.day_number
+  greater_than_or_equal_to: Settings.tours.duration.day_number
   validates_numericality_of :price,
-    greater_than_or_equal_to: Settings.tours.price.default_price
+  greater_than_or_equal_to: Settings.tours.price.default_price
 
   scope :last_tours, ->{order created_at: :desc}
+  scope :user_rated, -> {includes(:ratings).count(:user_id)}
   delegate :name, to: :category, prefix: true, allow_nil: true
   accepts_nested_attributes_for :picture, allow_destroy: true
   

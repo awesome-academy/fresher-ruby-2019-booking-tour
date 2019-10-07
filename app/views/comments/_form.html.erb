@@ -1,0 +1,13 @@
+<div class="comment-form">
+  <%= form_for [comment.commentable, comment], remote: true do |f| %>
+    <%= f.hidden_field :parent_id %>
+    <%= f.text_area :content, class: "form-control",
+      placeholder: (f.object.parent_id.nil? ? t(".share_your_idea") : t(".leave_your_reply")) %>
+    <div class="float-right">
+      <%= f.submit comment.new_record? ? t(".comment") : t(".change"), class: "btn btn-primary btn-sm float-xs-right btn-comment" %>
+      <%= link_to t(".cancel"), "#", 'data-reply': comment.parent_id.present?,
+        class: "cancel-comment-link btn btn-primary btn-sm float-xs-right ml-1 btn-comment" if comment.persisted? or comment.parent %>
+      <div class="clearfix"></div>
+    </div>
+  <% end %>
+</div>
