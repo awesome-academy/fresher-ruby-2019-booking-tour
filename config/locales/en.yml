@@ -134,3 +134,52 @@ en:
         forgot_password: "Forgot your password?"
         send_me: "Send me reset password instructions"
         email: "email"
+  tours:
+    tour:
+      close: "Close"
+    show:
+      simply: "Simply"
+      book: "Book"
+      $: "$"
+      day: "Day"
+      number: "(%{number} People)"
+    rating_form:
+      add_rating: "Add rating"
+      rating: "Rating"
+      close: "Close"
+    review_form:
+      content: "Review content"
+      post: "Post"
+      add_review: "Add Review"
+      close: "Close"
+      "1": "1"
+      "2": "2"
+      "3": "3"
+      "4": "4"
+      "5": "5"
+    ratings:
+      create:
+        success_create: "Success created"
+      load_tour:
+        not_found: "Not found"
+  comments:
+    form:
+      share_your_idea: "Share your idea"
+      comment: "comment"
+      leave_your_reply: "Leave your reply"
+      change: "change"
+    widget:
+      comment: "Comment"
+    comment:
+      edit: "edit"
+      destroy: "destroy"
+      reply: "reply"
+    create:
+      comment_success: "Success created"
+      comment_fail: "Fail update"
+      success_update: "Success update"
+      fail_update: "Fail update"
+    load_comment:
+      not_found: "Not found"
+
+

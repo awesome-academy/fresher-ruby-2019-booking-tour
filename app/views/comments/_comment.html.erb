@@ -1,0 +1,22 @@
+<li id="comment_<%= comment.id %>" class="comment">
+  <div class="avatar">
+    <%= image_tag get_avatar comment.user %>
+  </div>
+  <div class="comment-content">
+    <%= comment.content %>
+  </div>
+  <div class="comment-info">
+    <small>
+      <%= comment.user_name %>
+      <%= localize(comment.created_at, format: :long) %>
+      <%= link_to t(".edit"),edit_polymorphic_path([comment.commentable, comment]), class: "edit-comment-link", remote: true %>
+      <%= link_to t(".reply"), polymorphic_path([:reply, comment.commentable, comment]),
+        class: "reply-comment-link", remote: true %>
+    </small>
+    <% if comment.replies.any? %>
+      <ul>
+        <%= render comment.replies %>
+      </ul>
+    <% end %>
+  </div>
+</li>

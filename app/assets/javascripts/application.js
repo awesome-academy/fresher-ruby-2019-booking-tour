@@ -1,5 +1,6 @@
 //= require jquery
 //= require rails-ujs
+//= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require about
