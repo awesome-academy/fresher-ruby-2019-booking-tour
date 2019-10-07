@@ -1,0 +1,118 @@
+ @mixin background-tile {
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    padding: 1.5em 1.25em;
+  }
+ 
+ .reviews {
+    @include background-tile;
+    margin-top: 40px;
+ 
+    h1 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 2em;
+    }
+ 
+   .review {
+      border-bottom: 1px solid gainsboro;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+ 
+     .review-comment {
+        font-size: 1.05em;
+        line-height: 1.5;
+      }
+    }
+ 
+   .new-review {
+      padding-top: 8px;
+    }
+  }
+ 
+  .bank-account {
+    @include background-tile;
+    .bank-account-heading {
+      font-size: 22px;
+      font-family: auto;
+      font-style: bold;
+      font-weight: 700;
+      color: black;
+    }
+    .bank-account-body {
+      img {
+        width: 29%;
+        border-radius: 6px;
+        margin-left: 60%;
+      }
+    }
+    .account-number {
+      float: right;
+      color: cadetblue;
+      margin-top: -28%;
+    }
+    .amount {
+      margin-right: 75px;
+      margin-top: -59px;
+      color:cadetblue;
+    }
+  }
+.notification {
+  z-index: 100;
+  position: absolute;
+  width: 100%;
+}
+.star {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.star_on {
+  color: yellow;
+}
+
+.average-review-rating {
+  float: left;
+  img {
+    width: 20px;
+  }
+}
+
+.reviewer_avatar {
+  img {
+    height: auto;
+    width: 50%;
+    margin-left: 66px;
+    width: 50px;
+    border-radius: 50%;
+  }
+}
+
+.review_content {
+  margin-left: 100px;
+  font-size: larger;
+  font-family: initial;
+  font-style: italic;
+  color: black;
+  margin-top: 15px;
+}
+
+.review_times {
+  margin-left: 100px;
+  font-style: italic;
+  font-size: 15px;
+  font-family: auto;
+}
+
+.review_name {
+  margin-left: 100px;
+}
+
+.review_content {
+  margin-left: 10px;
+  textarea#review_content.form-control {
+    margin-left: -3px;
+  }
+}
