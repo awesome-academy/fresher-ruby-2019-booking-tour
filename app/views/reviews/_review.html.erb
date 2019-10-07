@@ -1,0 +1,21 @@
+<div class="reviews d-flex flex-column">
+  <div class="reviewer_avatar">
+    <%= image_tag get_avatar(review.user) %>
+  </div>
+  <div class="review_name">
+    <%= review.tour_name %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="review_picture">
+      <%= image_tag review.picture.picture_link.to_s if review.picture %>
+    </div>
+  </div>
+  <div class="row justify-content-start">
+    <div class="review_times">
+      <%= convert_times review.created_at %> <%= t ".by" %> <%= review.user_name %>
+    </div>
+    <div class="review_content">
+      <%= link_to truncate(review.content, length: Settings.review_content), tour_review_path(review) %>
+    </div>
+  </div>
+</div>
