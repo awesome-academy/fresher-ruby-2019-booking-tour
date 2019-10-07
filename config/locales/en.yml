@@ -134,3 +134,27 @@ en:
         forgot_password: "Forgot your password?"
         send_me: "Send me reset password instructions"
         email: "email"
+  tours:
+    tour:
+      close: "Close"
+    show:
+      simply: "Simply"
+      book: "Book"
+      $: "$"
+      day: "Day"
+      number: "(%{number} People)"
+    rating_form:
+      add_rating: "Add rating"
+      rating: "Rating"
+      close: "Close"
+      quantity: "Quantity"
+      "1": "1"
+      "2": "2"
+      "3": "3"
+      "4": "4"
+      "5": "5"
+    ratings:
+      create:
+        success_create: "Success created"
+      load_tour:
+        not_found: "Not found"

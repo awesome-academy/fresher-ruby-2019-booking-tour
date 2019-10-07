@@ -50,9 +50,9 @@
 }
 
 .login_btn {
-  font-size: 24px;
-  font-family: sans-serif;
-  color: black;
+    font-size: 24px;
+    font-family: sans-serif;
+    color: black;
 }
 
 .remember {
@@ -122,9 +122,10 @@
     padding: 5px;
     border-radius: 5px;
   }
-  #search_c_0_v_0_value, #search_c_0_a_0_name, #search_c_0_p, #search_s_0_name, #search_s_0_dir {
+  #search_c_0_v_0_value, #search_c_0_a_0_name,
+    #search_c_0_p, #search_s_0_name, #search_s_0_dir {
     height: 50px;
-    background: $background-search;
+    background: #f2f5f6;
     border: none;
     outline: none;
     padding-left: 17px;

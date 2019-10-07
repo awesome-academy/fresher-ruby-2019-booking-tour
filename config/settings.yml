@@ -22,3 +22,8 @@ theme:
   paging: 'twitter-bootstrap-4'
 paging:
   paging_number: 10
+average_default: 1
+round_default: 2
+length_description: 40
+max_star: 5
+min_star: 1
