@@ -22,3 +22,11 @@ theme:
   paging: 'twitter-bootstrap-4'
 paging:
   paging_number: 10
+average_default: 1
+round_default: 2
+length_description: 40
+max_star: 5
+min_star: 1
+row_default: 12
+time_post_review: "%B %e, %Y at %I:%M %p"
+review_content: 100
