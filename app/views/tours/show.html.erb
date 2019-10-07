@@ -1,0 +1,60 @@
+<div class="destinations" id="destinations">
+  <div class="container reviews">
+    <div class="row">
+      <div class="col text-center">
+        <div class="section_subtitle"><%= t ".simply" %></div>
+        <div class="section_title">
+          <h2><%= @tour.name %></h2>
+        <div class="average-review-rating" data-score=<%= @average_review %>>
+          <% if Tour.user_rated >= 1 %>
+            <%= t ".number", number: Tour.user_rated %>
+          <% end %>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10">
+        <%= image_tag tour_picture(@tour), size: "900x450" %>
+        <div class="spec_offer text-center">
+          <%= link_to @tour.category_name, "#" %>
+        </div>
+      </div>
+      <div class="col">
+        <%= render "booking_tour" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="destination_content">
+        <div class="col">
+          <div class="destination_title">
+            <%= link_to @tour.name, "#" %>
+            <%= @tour.duration %> <%= t ".day" %>
+          </div>
+          <div class="offer_price ">
+            <%= @tour.price %> <%= t ".$" %>
+          </div>
+          <div class="destination_title">
+            
+          </div>
+          <div class="destination_subtitle">
+            <%= @tour.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2" id="rating">
+        <% if user_signed_in? %>
+          <%= render partial: "rating_form" %>
+        <% end %>
+      </div>
+      <div class="col" id="review">
+        <% if user_signed_in? %>
+          <%= render partial: "review_form", review: @review %>
+        <% end %>
+      </div>
+    </div>
+    <%= render partial: "reviews/review", collection: @reviews, as: :review %>
+  </div>
+</div>

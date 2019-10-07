@@ -7,4 +7,8 @@ module ApplicationHelper
   def index_of_list object, counter
     (object.current_page - 1) * object.limit_value + counter + 1
   end
+
+  def is_current_user? user
+    user == current_user
+  end
 end

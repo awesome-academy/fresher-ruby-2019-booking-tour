@@ -1,5 +1,7 @@
 //= require jquery
 //= require rails-ujs
+//= require jquery-ui
+//= require jquery.datetimepicker
 //= require popper
 //= require bootstrap-sprockets
 //= require about

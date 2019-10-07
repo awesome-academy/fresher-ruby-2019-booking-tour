@@ -1,0 +1,36 @@
+ <% if user_signed_in? && is_current_user?(bank_account.user) %>
+  <div class="row">
+    <div class="col">
+      <div class="destination item">
+        <div class="destination_content bank-account">
+          <div class="bank-account-body">
+            <div class="bank-account-heading"><%= bank_account.name %></div>
+            <div class="bank-account-body">
+              <div class="row">
+                <%= image_tag get_avatar bank_account.user %>
+              </div>
+              <div class="row">
+                <div class="account-number">
+                  <%= t ".account" %>: <%= bank_account.account_number %>
+                </div>
+                <div class="amount">
+                  <%= t ".amount" %><%= bank_account.amount %><%= t ".$" %>
+                </div>
+                </div>
+              <div class="row action">
+                <%= link_to edit_bank_account_path(bank_account), class: "btn btn-warning btn-sm" do %>
+                  <i class="fa fa-edit"></i>
+                <% end %>
+                &ensp;
+                <%= link_to bank_account_path(bank_account), method: :delete,
+                  data: { confirm: t(".are_you_sure") }, class: "btn btn-danger btn-sm" do %>
+                  <i class="fa fa-trash"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<button type="button" class="btn-lg home_search_button"
+  data-toggle="modal" data-target="#new_card">
+<%= t ".new_card" %>
+</button>
+<div class="modal fade" id="new_card" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title"><%=  %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for :bank_account, url: bank_accounts_path, method: :post do |f| %>
+          <div class="from-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :account_number, t(".account_number") %>
+            <%= f.text_field :account_number, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.button t(".new_card"), type: :submit, class: "btn btn-info" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal"><%= t ".close" %></button>
+    </div>
+  </div>
+</div>
