@@ -1,3 +1,4 @@
+<% average = tour.ratings.present? ? tour.ratings.average(:star).round(Settings.round_default) : Settings.average_default %>
 <div class="destination item">
   <div class="destination_image">
     <% tour_image = tour.picture && tour.picture.picture_link ? tour.picture.picture_link.url : "destination_1.jpg" %>
@@ -11,11 +12,13 @@
       <%= link_to tour.name, tour_path(tour) %>
     </div>
     <div class="destination_subtitle">
-      <p><%= tour.description %></p>
+      <p><%= truncate tour.description, length: Settings.length_description %></p>
     </div>
     <div class="destination_subtitle">
       <p class="destination_price"><%= tour.duration %>day</p>
     </div>
     <div class="destination_price"><%= tour.price %><%= t ".$" %></div>
+    <div class="average-review-rating" data-score=<%= average %>>
+    </div>
   </div>
 </div>
