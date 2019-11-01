@@ -1,0 +1,37 @@
+version: '3.5'
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1
+    env_file:
+      - .env
+    volumes:
+      - ./docker/database:/var/lib/mysql
+  app:
+    build: .
+    container_name: app
+    command: bash -c "rm -f tmp/pids/server.pid && rails s -b 0.0.0.0"
+    volumes:
+      - .:/my_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    stdin_open: true
+    tty: true
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:
+  spring:
+    container_name: spring
+    build: .
+    volumes:
+      - .:/my_app
+    restart: always
+    command: bundle exec spring server
+    environment:
+      DATABASE_HOST: $DATABASE_HOST
+      DATABASE_USER_NAME: $DATABASE_USER_NAME
+      DATABASE_PASSWORD: 1

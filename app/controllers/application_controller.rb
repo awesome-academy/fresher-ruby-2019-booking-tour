@@ -3,15 +3,15 @@ class ApplicationController < ActionController::Base
   before_action :get_user_details
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-  def set_search
-    @search = Tour.ransack params[:search], auth_object: set_ransack_auth_object
-    @search.sorts = Settings.default_sort if @search.sorts.empty?
-    @tours = @search.result
-      .page(params[:page])
-      .per Settings.paging.paging_number
-    @search.build_condition if @search.conditions.empty?
-    @search.build_sort if @search.sorts.empty?
-  end
+  # def set_search
+  #   @search = Tour.ransack params[:search], auth_object: set_ransack_auth_object
+  #   @search.sorts = Settings.default_sort if @search.sorts.empty?
+  #   @tours = @search.result
+  #     .page(params[:page])
+  #     .per Settings.paging.paging_number
+  #   @search.build_condition if @search.conditions.empty?
+  #   @search.build_sort if @search.sorts.empty?
+  # end
 
   def require_user_login
     unless user_signed_in?
