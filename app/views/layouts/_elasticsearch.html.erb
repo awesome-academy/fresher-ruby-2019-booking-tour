@@ -1,0 +1,9 @@
+<%= form_for :term, url: search_path, method: :get, class: "tour-form-search" do |f| %>
+<div class="row">
+  <div class="col">
+    <%= text_field_tag :term, params[:term], class: "form-control"%>
+  
+  </div>
+  <%= submit_tag "Search", class: "home_search_button" %>
+</div>
+<% end %>

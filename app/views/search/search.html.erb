@@ -1,0 +1,97 @@
+<% if @reviews.empty? && @tours.empty? %>
+  <p>No found </p>
+<% end %>
+<% if @tours.any? %>
+    <div class="destinations search_results" id="destinations">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <div class="section_subtitle">simply amazing places</div>
+            <div class="section_title"><h2>Destinations results</h2></div>
+          </div>
+        </div>
+        <div class="row destinations_row">
+          <div class="col">
+            <div class="destinations_container item_grid">
+              <!-- Destination -->
+              <% @tours.with_highlights.each do |tour, highlight| %>
+                <% tour1 = Tour.find_by id: tour.id %>
+                <div class="destination item">
+                  <div class="destination_image">
+                    <%= image_tag tour_picture(tour1) %>
+                    <div class="spec_offer text-center"><%= link_to tour1.category_name, "#" %></div>
+                  </div>
+                  <div class="average-review-rating" data-score=<%= review_average(tour1) %>>
+                  </div>
+                  <div class="destination_content">
+                    <div class="destination_title"><%= highlight[:name].present? ? link_to(highlight[:name].html_safe, tour) : tour.name  %></div>
+                    <div class="destination_subtitle">
+                      <p><%= highlight[:description].html_safe if highlight[:description].present? %></p>
+                    </div>
+                    <div class="destination_price"><%= "From $" %><%= tour.price %></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <%= paginate @tours, theme: Settings.theme.paging if @tours.any? %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<hr> 
+<% if @reviews.any? %>
+    <div class="destinations search_results" id="destinations">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <div class="section_title"><h2>Review</h2></div>
+          </div>
+        </div>
+        <div class="row destinations_row">
+          <div class="col">
+            <div class="destinations_container">
+              <!-- Destination -->
+              <% @reviews.with_highlights.each do |review, highlight| %>
+                <% review1 = Review.find_by id: review.id %>
+                <div class="reviews d-flex flex-column">
+                  <div class="reviewer_avatar">
+                    <%= image_tag get_avatar(review1.user) %>
+                  </div>
+                  <div class="review_user">
+                    <%= review1.user_name %>
+                  </div>
+                  <div class="row">
+                    <div class="review_times">
+                      <%= convert_times review1.created_at %>
+                    </div>
+                  </div>
+                  <div class="row review_content">
+                    <div class="col">
+                      <%= highlight[:content].html_safe %>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="review_picture">
+                      <%= image_tag review1.picture.picture_link.to_s if review1.picture %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div id="btn-like-<%= review.id %>" class="like">
+                      <% if user_signed_in? && current_user.liked?(review.id) %>
+                        <%= render partial: "likes/unlike", locals: {review: review1} %>
+                      <% else %>
+                        <%= render partial: "likes/like", locals: {review: review1} %>
+                      <% end %>
+                      </div>
+                    </div>
+                    <%= render "comments/widget", commentable: review1 %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= paginate @reviews, theme: Settings.theme.paging if @reviews.any? %>
+<% end %>

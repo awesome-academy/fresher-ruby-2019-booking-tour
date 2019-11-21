@@ -20,6 +20,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :picture, allow_destroy: true
   enum role: {guest: 0, user: 1, admin: 2}
   
+  def liked? review_id
+    self.likes.find_by(review_id: review_id).present?
+  end
+  
   class << self
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.id).first_or_create do |user|
@@ -31,13 +35,13 @@ class User < ApplicationRecord
           Settings.users.max_password_length]
       end
     end
+  end
 
-    def new_with_session params, session
-      tap do |user|
-        if data = session["devise.#facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-          next unless user.email.blank?
-          user.email = data["email"]
-        end
+  def new_with_session params, session
+    tap do |user|
+      if data = session["devise.#facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        next unless user.email.blank?
+        user.email = data["email"]
       end
     end
   end

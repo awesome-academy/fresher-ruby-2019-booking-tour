@@ -1,103 +1,102 @@
 <div class="super_container">
-  <!-- Home -->
-  <div class="home">
-    <!-- Home Slider -->
-    <div class="home_slider_container">
-      <div class="owl-carousel owl-theme home_slider">
-        <!-- Slide -->
-        <div class="owl-item">
-          <div class="background_image"></div>
-          <div class="home_slider_content_container">
-            <div class="container">
-              <div class="row">
-                <div class="col">
-                  <div class="home_slider_content">
-                    <div class="home_title">
-                      <h2><%= t ".let_us" %></h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Slide -->
-      </div>
-      <div class="home_page_nav">
-        <ul class="d-flex flex-column align-items-end justify-content-end">
-          <li>
-            <%= link_to "#", {'data-scroll-to': '#destinations'} do %>
-              <%= t ".popular" %><span><%= t ".number_01" %></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#", {'data-scroll-to': '#testimonials'} do %>
-              <%= t ".new" %><span><%= t ".number_02" %></span>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "#", {'data-scroll-to': '#testimonials'} do %>
-              <%= t ".rating" %><span><%= t ".number_03" %></span>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <!-- Search -->
-  <div class="home_search">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="home_search_container">
-            <div class="home_search_title"><%= t ".search_trip" %></div>
-            <div class="home_search_content">
-              <%= render partial: "search", search: @search %>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Destinations -->
-  <div class="destinations" id="destinations">
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <div class="section_subtitle"><%= t ".simply" %></div>
-          <div class="section_title">
-            <h2><%= t ".popular" %></h2>
-          </div>
-        </div>
-      </div>
-      <div class="row destinations_row">
-        <div class="col">
-          <div class="destinations_container item_grid">
-            <!-- Destination -->
-            <%= render partial: "tour", collection: @tours, as: :tour %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="destinations" id="testimonials">
-    <div class="container">
-      <div class="row">
-        <div class="col text-center">
-          <div class="section_subtitle"><%= t ".simply" %></div>
-          <div class="section_title">
-            <h2><%= t ".new" %></h2>
-          </div>
-        </div>
-      </div>
-      <div class="row destinations_row">
-        <div class="col">
-          <div class="destinations_container item_grid">
-            <!-- Destination -->
-            <%= render partial: "tour", collection: @tours, as: :tour %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	
+	<!-- Header -->
+
+
+	
+	<!-- Home -->
+
+
+	<!-- Intro -->
+
+	
+	<%= render "intro" %>
+	<% if params[:search].present? %>
+	<div class="destinations" id="destinations">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="section_subtitle">simply amazing places</div>
+						<div class="section_title"><h2>Result search</h2></div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+
+							<!-- Destination -->
+							<%= render partial: "tour", collection: @tours, as: :tour %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+		<div class="destinations" id="destinations">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="section_subtitle">simply amazing places</div>
+						<div class="section_title"><h2>Popular Destinations</h2></div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+
+							<!-- Destination -->
+							<%= render partial: "tour", collection: tour_with_review_likes, as: :tour %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- popular -->
+		
+		<!-- rating -->
+
+		<div class="destinations" id="testimonials">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="section_subtitle">simply amazing places</div>
+						<div class="section_title"><h2>Rating</h2></div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+
+							<!-- Destination -->
+							<%= render partial: "tour", collection: @tour_with_ratings, as: :tour %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<!-- Last -->
+		<div class="destinations" id="news">
+			<div class="container">
+				<div class="row">
+					<div class="col text-center">
+						<div class="section_subtitle">simply amazing places</div>
+						<div class="section_title"><h2>New</h2></div>
+					</div>
+				</div>
+				<div class="row destinations_row">
+					<div class="col">
+						<div class="destinations_container item_grid">
+
+							<!-- Destination -->
+							<%= render partial: "tour", collection:@tour_lastest, as: :tour %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 </div>
+
+	

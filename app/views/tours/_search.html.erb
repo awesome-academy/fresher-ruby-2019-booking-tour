@@ -16,12 +16,12 @@
           <% end %>
         </div>
         <div class="col-3">
-         <button class="home_search_button"><%= t ".search" %></button>
+         <button class="home_search_button"><%= "Search" %></button>
         </div>
       </div>
       <div class="col">
-        <%= f.sort_fields do |sort| %>
-          <%= sort.sort_select %>
+        <% f.sort_fields do |sort| %>
+          <% sort.sort_select %>
         <% end %>
       </div>
     <% end %>

@@ -1,0 +1,10 @@
+<% if @booking_request && @booking.errors.empty? %>
+  $('.my_notification').html('<%= j render "success", booking: @booking %>');
+  $('#btn_notification').click();
+  $('#book_tour').click();
+<% else %>
+  $('.booking_fail').append('<%= j render "errors", booking: @booking %>');
+  <% if !@booking_request %>
+    $('.account_not_enough').html('<p><%= @balance_is_not %></p>');
+  <% end %>
+<% end %>
