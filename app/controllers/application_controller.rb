@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   
   def set_search
@@ -13,7 +12,15 @@ class ApplicationController < ActionController::Base
     @search.build_sort if @search.sorts.empty?
   end
 
+  def require_user_login
+    unless user_signed_in?
+      session[:tour_id] = params[:tour_id]
+      redirect_to new_user_session_path
+    end
+  end
+  
   protected
+
   
   def set_ransack_auth_object
     current_user&.admin? ? :admin : nil

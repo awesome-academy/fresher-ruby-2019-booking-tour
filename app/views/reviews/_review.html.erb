@@ -1,0 +1,33 @@
+<div class="reviews d-flex flex-column">
+  <div class="reviewer_avatar">
+    <%= image_tag get_avatar(review.user) %>
+  </div>
+  <div class="review_user">
+    <%= review.user_name %>
+  </div>
+  <div class="row">
+    <div class="review_times">
+      <%= convert_times review.created_at %>
+    </div>
+  </div>
+  <div class="row review_content">
+    <div class="col">
+      <div class="more"><%= review.content %></div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="review_picture">
+      <%= image_tag review.picture.picture_link.to_s if review.picture %>
+    </div>
+  </div>
+  <div class="row">
+    <div id="btn-like-<%= review.id %>" class="like">
+      <% if user_signed_in? && current_user.liked?(review.id) %>
+        <%= render partial: "likes/unlike", locals: {review: review} %>
+      <% else %>
+        <%= render partial: "likes/like", locals: {review: review} %>
+      <% end %>
+      </div>
+    </div>
+    <%= render "comments/widget", commentable: review %>
+</div>

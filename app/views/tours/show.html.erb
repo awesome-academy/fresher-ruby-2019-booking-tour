@@ -1,0 +1,112 @@
+
+	<div class="home">
+		
+		<!-- Home Slider -->
+		<div class="home_slider_container">
+			<div class="owl-carousel owl-theme home_slider">
+				
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Let us take you away</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image" ></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Let us take you away</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Slide -->
+				<div class="owl-item">
+					<div class="background_image"></div>
+					<div class="home_slider_content_container">
+						<div class="container">
+							<div class="row">
+								<div class="col">
+									<div class="home_slider_content">
+										<div class="home_title"><h2>Let us take you away</h2></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+<div class="destinations" id="destinations">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="section_title">
+          <h2><%= @tour.name %></h2>
+        <div class="average-review-rating" data-score=<%= review_average(@tour) %>>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-10">
+        <%= image_tag tour_picture(@tour), size: Settings.picture_size %>
+        <div class="spec_offer text-center">
+          <%= link_to @tour.category_name, "#" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="destination_content">
+        <div class="col">
+          <div class="destination_price">
+            <%= @tour.duration %> <%= t ".day" %>
+          </div>
+          <div class="destination_price">
+            <%= "From $" %><%= @tour.price %>
+          </div>
+          <div class="destination_title">
+            
+          </div>
+          <div class="destination_subtitle more">
+            <%= @tour.description %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="d-flex">
+      <div class="ml-2">
+        <%= render partial: "rating_form" %>
+      </div>
+      <div class="ml-2">
+        <%= render partial: "review_form", review: @review %>
+      </div>
+      <div class="ml-2">
+        <%= render "booking_tour" %>
+      </div>
+    </div>
+    <%= render partial: "reviews/review", collection: @reviews, as: :review %>
+    <%= paginate @reviews, theme: Settings.theme.paging if @reviews.any? %>
+  </div>
+</div>
