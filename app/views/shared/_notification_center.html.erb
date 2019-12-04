@@ -1,0 +1,14 @@
+<ul class="notificator bell-btn">
+  <a href="#" id="open_notification">
+    <%= render "shared/counter", counter: @current_user.number_of_activities if @current_user&.number_of_activities%>
+  </a>
+  <div id="notificationContainer">
+    <div id="notificationTitle">Notification</div>
+    <div id="notificationBody" class="notifications">
+      <ul id="notificationList">
+        <%= render_activity @activities if @activities.any? %>
+      </ul>
+    </div>
+    <div id="notificationFooter"></div>
+  </div>
+</ul>

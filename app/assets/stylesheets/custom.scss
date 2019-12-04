@@ -32,6 +32,12 @@
   height: 100%;
   align-content: center;
 }
+
+container-bank-accounts {
+  margin: 100px 50px;
+  height: 100%;
+  align-content: center;
+}
 .card {
   height: 400px;
   margin-top: auto;
@@ -122,7 +128,7 @@
     padding: 5px;
     border-radius: 5px;
   }
-  #search_c_0_v_0_value, #search_c_0_a_0_name, #search_c_0_p, #search_s_0_name, #search_s_0_dir {
+  #term, #search_c_0_v_0_value,#search_c_0_a_0_name, #search_c_0_p, #search_s_0_name, #search_s_0_dir {
     height: 50px;
     background: $background-search;
     border: none;
@@ -133,8 +139,8 @@
     font-weight: 500 !important;
     color: $color-search !important;
     box-shadow: 2px 2px 5px white;
-
   }
+  
   #search_s_0_name, #search_s_0_dir {
     margin-top: 10px;
     margin-right: 5px;
@@ -158,3 +164,30 @@
   padding-right: 83px;
 }
 
+.offer_price {
+  display: inline-block;
+  font-size: 36px;
+  font-weight: 700;
+  color: $price;
+  line-height: 25px;
+}
+.account_not_enough p {
+  color: red;
+  font-size: 18px;
+  font-family: serif;
+}
+a.booking_no_login {
+  text-decoration: none;
+}
+.profile  {
+  background-color: rgba(24, 24, 24, 0.6);
+}
+.destination_image img {
+  width: 100%;
+  height: 250px;
+}
+.search_results em {
+  background-color: yellow;
+  font-style: normal;
+  font-weight: bold;
+}

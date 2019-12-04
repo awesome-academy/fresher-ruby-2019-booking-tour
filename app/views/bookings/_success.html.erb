@@ -1,0 +1,17 @@
+<div class="modal-body justify-content-center">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="row justify-content-center">
+    <h4><%= t ".happiness" %></h4>
+    <%= t ".join_community" %>
+    <div class="book_detail">
+      <p><%= "Star time: "%><%= @booking.start_time.strftime(Settings.time_post_review) %></p>
+      <p><%= "Price: "%><%= @booking.price %></p>
+      <p><%= "People number: "%><%= @booking.people_number %></p>
+      <p><%= "Phone number: "%><%= @booking.phone_number %></p>
+      <p><%= "Address: "%><%= @booking.address %></p>
+    </div>
+  </div>
+</div>
+

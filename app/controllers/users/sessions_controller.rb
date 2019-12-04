@@ -2,11 +2,11 @@ class Users::SessionsController < Devise::SessionsController
 
   protected
 
-  def after_sign_in_path_for current_user
-    if current_user.admin?
-      admin_dashboard_path
+  def after_sign_in_path_for user
+    if user.admin?
+      rails_admin_url
     else
-      root_url
+      session[:tour_id] ? tour_path(session[:tour_id]) : super
     end
   end
 end

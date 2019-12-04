@@ -1,0 +1,16 @@
+<div class="destination item">
+  <div class="destination_image">
+  <% tour = Tour.find(tour.id) %>
+    <%= image_tag tour_picture(tour) %>
+    <div class="spec_offer text-center"><%= link_to tour.category_name, "#" %></div>
+  </div>
+  <div class="average-review-rating" data-score=<%= review_average(tour) %>>
+  </div>
+  <div class="destination_content">
+    <div class="destination_title"><%=  link_to truncate(tour.name, length: 27), tour   %></div>
+    <div class="destination_subtitle">
+      <p><%= truncate tour.description, length: Settings.length_description %></p>
+    </div>
+    <div class="destination_price"><%= "From $" %><%= tour.price %></div>
+  </div>
+</div>
