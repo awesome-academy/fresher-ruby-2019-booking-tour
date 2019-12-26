@@ -1,0 +1,33 @@
+<h2>Search Results for: <i><%= params[:term] %></i></h2>
+<% if @tours.any? %>
+  <% @tours.each do |tour| %>
+    <% tour1 = Tour.find(tour.id) %>
+  <div class="search_results">
+    <div class="destination item">
+      <div class="destination_image">
+        <%= image_tag tour_picture(tour1) %>
+        <div class="spec_offer text-center"><%= link_to tour1.category_name, "#" %></div>
+      </div>
+      <div class="average-review-rating" data-score=<%= review_average(tour1) %>>
+      </div>
+      <div class="destination_content">
+        <div class="destination_title"><%= tour.highlight.name.present? ? tour.highlight.name[0].html_safe : tour.name %></div>
+        <div class="destination_subtitle">
+          <% if tour&.highlight&.description %>
+            <% tour.highlight.description.each do |snippet| %>
+              <p><%= snippet.html_safe %></p>            
+            <% end %>
+          <% end %>
+          
+        </div>
+        <div class="destination_price"><%= "From $" %><%= tour.price %></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  
+<% else %>
+  <p>Your search did not match any documents.</p>
+<% end %>
+
+

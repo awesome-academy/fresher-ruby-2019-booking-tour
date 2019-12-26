@@ -9,18 +9,25 @@ gem "bootstrap4-kaminari-views"
 gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "public_activity"
 gem "devise"
 gem "ffaker"
 gem "figaro"
 gem "font-awesome-rails"
+gem "jquery-datetimepicker-rails"
 gem "jbuilder", "~> 2.5"
 gem "jquery-easing-rails"
 gem "jquery-rails"
+gem "jquery-ui-rails"
 gem "ransack"
+# gem "searchkick"
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
 gem "kaminari"
 gem "mini_racer"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "omniauth"
+gem "rails_admin"
 gem "omniauth-facebook"
 gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.3"
@@ -38,6 +45,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "rails-erd"
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
@@ -50,6 +58,12 @@ group :test do
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 3.1"
   gem "webdrivers"
+end
+
+group :production do
+  gem "pg"
+  gem 'bootstrap-sass' 
+  gem "rails_12factor"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,0 +1,2 @@
+<%= review.likes.size %>
+<%= link_to fa_icon("heart-o"), review_likes_path(review), method: :post, remote: true,rel: "tooltip",title: t(".like"), class: "text-dark" %>
